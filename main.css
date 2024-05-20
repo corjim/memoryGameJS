@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    /* width: 100vw; */
+    display: flex;
+    background: #c6a203;
+}
+
+.title{
+    text-align: center;
+    position: absolute;
+    top: 1%;
+    left: 43%;
+    background: #e9bc0a;
+    text-shadow: 1px 1px 3px;
+    box-shadow: 2px 2px 5px;
+    border-radius: 2px;
+}
+
+h1{
+    font-size: 250%
+}
+
+h3{
+    font-size: 25px;
+}
+.memory-game{
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.memory-card{
+    width: calc(25% - 10px);
+    height: calc(33.33% - 10px);
+    position: relative;
+    margin:5px;
+    box-shadow: 4px 5px 6px rgb(63, 66, 11);
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    /* to carry out the 3d effect, the parent element must be the perspective, then the style and transition to see the effects. */
+}
+.memory-card:active{
+    transform: scale(.97);
+    transition: transform .5s
+}
+.memory-card.flip{
+    transform: rotateY(180deg);
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.front-face,
+.back-face{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute; 
+    /* position sets the pic on top of each other */
+    border-radius: 5px;
+    background: #1c78c48b;
+    backface-visibility: hidden;
+}
+
+.front-face{
+    transform: rotateY(180deg);
+}
